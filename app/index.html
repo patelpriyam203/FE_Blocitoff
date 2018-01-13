@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Blocitoff">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bloc Base Project</title>
+    <title>Blocitoff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjord+One">
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <h4>Hello, World???</h4>
+    <ui-view></ui-view>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- AngularUI Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+    <!-- FireBase -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB1x-iB1g7InV6c_oDh4SdTa7nBvUoPnjU",
+        authDomain: "fe-blocitoff-c4897.firebaseapp.com",
+        databaseURL: "https://fe-blocitoff-c4897.firebaseio.com",
+        projectId: "fe-blocitoff-c4897",
+        storageBucket: "fe-blocitoff-c4897.appspot.com",
+        messagingSenderId: "780903555377"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- Application Files -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/services/Task.js"></script>
 </body>
 </html>
