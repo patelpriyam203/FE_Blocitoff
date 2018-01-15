@@ -1,15 +1,19 @@
 <section class="hero-content">
   <h1 class="hero-title">Current Tasks</h1>
-  <button class="new-task">
-      <h5 class="task-btn">New Task</h5>
-  </button>
+</section>
+
+<section class="new-task">
+  <div class="new-task-field">
+    <input type="text" class="task-field" ng-model="messageTitle" placeholder="Name your new task">
+    <input type="text" class="task-field" ng-model="messageDescription" placeholder="Describe your new task">
+    <button class="submit" ng-click="home.addTask(messageTitle, messageDescription)">Add Task</button>
+  </div>
 </section>
 
 <section class="task-content">
-  <ul class="task-list" ng-repeat="task in home.tasks">
+  <div class="task-list" ng-repeat="task in home.tasks">
     <h3>{{ task.title }}</h3>
-    <p>Created: {{ task.createdAt }}
+    <p>Created: {{ task.createdAt }}</p>
     <p class="task-description">Description: {{ task.description }}</p>
-  </ul>
-
+  </div>
 </section>
