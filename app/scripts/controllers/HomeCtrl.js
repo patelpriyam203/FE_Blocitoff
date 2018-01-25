@@ -7,12 +7,18 @@
         var newTask = {
           title: taskTitle,
           description: taskDescription,
-          createdAt: Date.now(),
+          createdAt: moment().dayOfYear(),
           completed: false
         };
         Task.addTask(newTask);
       }
     }
+
+    this.checkHide = function(task) {
+      if ((task.createdAt < (moment().dayOfYear() - 7)) || task.completed == true) {
+          return true;
+      }
+    };
   }
 
   angular
