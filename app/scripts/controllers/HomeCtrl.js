@@ -2,11 +2,11 @@
   function HomeCtrl(Task, $scope) {
     this.tasks = Task.all;
 
-    this.addTask = function(taskTitle, taskDescription) {
-      if (taskTitle) {
+    this.addTask = function(title, description) {
+      if (title) {
         var newTask = {
-          title: taskTitle,
-          description: taskDescription,
+          title: title,
+          description: description,
           createdAt: moment().dayOfYear(),
           completed: false
         };
@@ -14,7 +14,7 @@
       }
     }
 
-    this.checkHide = function(task) {
+    this.checkHidden = function(task) {
       if ((task.createdAt < (moment().dayOfYear() - 7)) || task.completed == true) {
           return true;
       }
