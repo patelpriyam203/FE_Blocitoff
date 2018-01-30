@@ -4,15 +4,16 @@
 
 <section class="new-task">
   <div class="new-task-fill">
-    <input type="text" class="task-field" ng-model="taskTitle" placeholder="Enter new task">
-    <input type="text" class="task-field" ng-model="taskDescription" placeholder="Enter new task">
-    <button class="submit" ng-click="home.addTask(taskTitle, taskDescription)">Add Task</button>
+    <input type="text" class="task-field" ng-model="title" placeholder="Enter new task">
+    <input type="text" class="task-field" ng-model="description" placeholder="Enter new task">
+    <button class="submit" ng-click="home.addTask(title, description)">Add Task</button>
+    <!-- use ng-submit instead of using ng-click -->
   </div>
 </section>
 
 <section class="task-content">
   <div class="task-list" ng-repeat="task in home.tasks">
-    <div ng-hide="home.checkHide(task)">
+    <div ng-hide="home.checkHidden(task)">
       <h3><input class="task-checkbox" type="checkbox">{{ task.title }}</h3>
       <p>Created: {{ task.createdAt }}</p>
       <p class="task-description">Description: {{ task.description }}</p>
