@@ -4,5 +4,83 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
+  font-family: serif;
+}
+
+.nav-bar {
+  position: absolute;
+  right: 4rem;
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  top: 3rem;
+  height: 5rem;
+  width: 100%;
+}
+
+.hero-title {
+  padding: 0 0 0 2.5rem;
+}
+
+.new-task {
+  position: absolute;
+  top: 8rem;
+  width: 100%;
+  background-color: grey;
+}
+
+.new-task-field {
+  padding: 1rem 0 1rem 2.5rem;
+}
+
+.task-field {
+  margin: 0 1rem 0.25rem 0;
+  padding: 0.25rem;
+  width: 30%;
+  border: none;
+  border-radius: 3px;
+}
+
+.priority {
+  margin: 0 1rem 0 0;
+  height: 1.75rem;
+}
+
+.submit {
+  border-width: 3px;
+  border-radius: 3px;
+  padding: 0rem 1rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.task-content {
+  position: relative;
+  left: 0;
+  top: 12rem;
+  height: 100%;
+  width: 100%;
+}
+
+.task-list {
+  top: 5rem;
+  padding: 0 2.5rem 0 2.5rem;
+}
+
+.task-checkbox {
+  float: left;
+  position: relative;
+  top: 0.25rem;
+}
+
+.task-title {
+  position: relative;
+  left: 0.5rem;
+}
+
+.archive-title {
+  position: relative;
+  left: 0.5rem;
 }
