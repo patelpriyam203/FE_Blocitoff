@@ -2,11 +2,12 @@
   function HomeCtrl(Task, $scope) {
     this.tasks = Task.all;
 
-    this.addTask = function(title, description) {
+    this.addTask = function(title, description, priority) {
       if (title) {
         var newTask = {
           title: title,
           description: description,
+          priority: priority,
           createdAt: moment().dayOfYear(),
           completed: false
         };

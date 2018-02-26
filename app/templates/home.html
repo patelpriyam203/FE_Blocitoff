@@ -4,17 +4,23 @@
 
 <section class="new-task">
   <div class="new-task-fill">
-    <input type="text" class="task-field" ng-model="title" placeholder="Enter new task">
-    <input type="text" class="task-field" ng-model="description" placeholder="Enter new task">
-    <button class="submit" ng-click="home.addTask(title, description)">Add Task</button>
-    <!-- use ng-submit instead of using ng-click -->
+    <input type="text" class="task-field" ng-model="title" placeholder="Enter new title">
+    <input type="text" class="task-field" ng-model="description" placeholder="Enter new description">
+    <select class="priority" ng-model="priority">
+      <option value="High">1</option>
+      <option value="Medium">2</option>
+      <option value="Low" >3</option>
+    </select>
+    <button class="submit" ng-click="home.addTask(title, description, priority)">Add Task</button>
+    <!-- ng-submit instead of using ng-click -->
   </div>
 </section>
 
 <section class="task-content">
-  <div class="task-list" ng-repeat="task in home.tasks">
+  <div class="task-list" ng-repeat="task in home.tasks | orderBy: 'priority'">
     <div ng-hide="home.checkHidden(task)">
       <h3><input class="task-checkbox" type="checkbox">{{ task.title }}</h3>
+      <p class="task-priority">Priority: {{ task.priority }}</p>
       <p>Created: {{ task.createdAt }}</p>
       <p class="task-description">Description: {{ task.description }}</p>
     </div>

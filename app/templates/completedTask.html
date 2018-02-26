@@ -6,7 +6,12 @@
   <div class="new-task-field" ng-submit="home.addTask()">
     <input type="text" class="task-field" ng-model="task.title" name="title" value="Task Name">
     <input type="text" class="task-field" ng-model="task.description" value="Task Description">
-    <input type="submit" class="submit" value="Add Task">
+    <select class="priority" ng-model="priority">
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low" >Low</option>
+    </select>
+    <button class="submit" ng-click="home.addTask(title, description, priority)">Add Task</button>
   </div>
 </section>
 
@@ -14,6 +19,7 @@
   <div class="task-list" ng-repeat="task in completed.tasks">
     <div ng-hide="completed.showTasks(task)">
       <h3 class="archive-title"><input class="task-checkbox" type="checkbox"> {{ task.title }}</h3>
+      <p class="task-priority">Priority: {{ task.priority }}</p>
       <p>Created: {{ task.created }}
       <p class="task-description">Description: {{ task.description }}</p>
     </div>
