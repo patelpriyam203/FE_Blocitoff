@@ -15,7 +15,7 @@
 
       .state('completedTask', {
         url: '/completedTask',
-        controller: 'CompletedCtrl as completed',
+        controller: 'CompletedCtrl as complete',
         templateUrl: '/templates/completedTask.html'
       });
   }

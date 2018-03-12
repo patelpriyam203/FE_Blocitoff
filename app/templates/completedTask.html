@@ -1,26 +1,29 @@
 <section class="hero-content">
-  <h1 class="hero-title">completedTask</h1>
+  <h1 class="hero-title">Task History</h1>
 </section>
-
+<!--
 <section class="new-task">
-  <div class="new-task-field" ng-submit="home.addTask()">
-    <input type="text" class="task-field" ng-model="task.title" name="title" value="Task Name">
-    <input type="text" class="task-field" ng-model="task.description" value="Task Description">
+  <div class="new-task-field" ng-submit="complete.addTask()">
+    <input type="text" class="task-field" ng-model="title" name="title" value="Task Name">
+    <input type="text" class="task-field" ng-model="description" value="Task Description">
+    <select ng-options="option.setting for option in priority.availableOptions track by option.id" ng-model="priority.selectedOption"></select>
     <select class="priority" ng-model="priority">
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low" >Low</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
     </select>
-    <button class="submit" ng-click="home.addTask(title, description, priority)">Add Task</button>
+    <button class="submit" ng-click="complete.addTask(title, description, priority)">Add Task</button>
   </div>
-</section>
+</section> -->
 
 <section class="task-content">
-  <div class="task-list" ng-repeat="task in completed.tasks">
-    <div ng-hide="completed.showTasks(task)">
-      <h3 class="archive-title"><input class="task-checkbox" type="checkbox"> {{ task.title }}</h3>
-      <p class="task-priority">Priority: {{ task.priority }}</p>
-      <p>Created: {{ task.created }}
+  <div class="task-list" ng-repeat="task in complete.tasks">
+    <div class="archive" ng-hide="complete.showTasks(task)">
+      <div>
+        <span class="ion-checkmark-circled" ng-click="complete.taskStatus(task)"></span>
+        <!-- <h3 class="archive-title">{{ task.title }}</h3> -->
+      </div>
+      <!-- <p class="task-priority">Priority: {{ task.priority }}</p> -->
       <p class="task-description">Description: {{ task.description }}</p>
     </div>
   </div>

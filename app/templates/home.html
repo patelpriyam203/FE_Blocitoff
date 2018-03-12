@@ -3,25 +3,29 @@
 </section>
 
 <section class="new-task">
-  <div class="new-task-fill">
-    <input type="text" class="task-field" ng-model="title" placeholder="Enter new title">
+  <div class="new-task-field">
+    <!-- <input type="text" class="task-field" ng-model="title" placeholder="Enter new title"> -->
+    <p class="task-description">Task Description</p>
+    <p class="task-priority">Priority</p>
     <input type="text" class="task-field" ng-model="description" placeholder="Enter new description">
+    <!-- <select ng-options="option.id as option.setting for option in priority" ng-model="selectedOption"></select> -->
     <select class="priority" ng-model="priority">
-      <option value="High">1</option>
-      <option value="Medium">2</option>
-      <option value="Low" >3</option>
+      <option value="1">High</option>
+      <option value="2">Medium</option>
+      <option value="3" selected>Low</option>
     </select>
-    <button class="submit" ng-click="home.addTask(title, description, priority)">Add Task</button>
-    <!-- ng-submit instead of using ng-click -->
+    <button class="submit" ng-click="home.addTask(description, priority)">Add Task</button>
   </div>
 </section>
 
 <section class="task-content">
   <div class="task-list" ng-repeat="task in home.tasks | orderBy: 'priority'">
     <div ng-hide="home.checkHidden(task)">
-      <h3><input class="task-checkbox" type="checkbox">{{ task.title }}</h3>
-      <p class="task-priority">Priority: {{ task.priority }}</p>
-      <p>Created: {{ task.createdAt }}</p>
+      <div>
+        <span class="ion-checkmark-circled" ng-click="home.taskStatus(task)"></span>
+        <!-- <h3 class="task-title">{{ task.title }}</h3> -->
+      </div>
+      <!-- <p class="task-priority">Priority: {{ task.priority }}</p> -->
       <p class="task-description">Description: {{ task.description }}</p>
     </div>
   </div>

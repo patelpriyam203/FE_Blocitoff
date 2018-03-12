@@ -1,11 +1,21 @@
 (function() {
   function HomeCtrl(Task, $scope) {
     this.tasks = Task.all;
+    this.taskStatus = function(task) {
+      Task.completedTask(task);
+    }
 
-    this.addTask = function(title, description, priority) {
-      if (title) {
+    this.checkHidden = function(task) {
+      return task.createdAt < (moment().dayOfYear() - 7) || task.completed == true
+    };
+
+    // this.showTasks = function(task) {
+    //   return task.createdAt > (moment().dayOfYear() - 7) && task.completed == false
+    // };
+
+    this.addTask = function(description, priority) {
+      if (description) {
         var newTask = {
-          title: title,
           description: description,
           priority: priority,
           createdAt: moment().dayOfYear(),
@@ -14,12 +24,6 @@
         Task.addTask(newTask);
       }
     }
-
-    this.checkHidden = function(task) {
-      if ((task.createdAt < (moment().dayOfYear() - 7)) || task.completed == true) {
-          return true;
-      }
-    };
   }
 
   angular

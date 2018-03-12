@@ -2,9 +2,17 @@
   function CompletedCtrl(Task) {
     this.tasks = Task.all;
 
-    this.showTasks = function(task) {
-     return task.created > (moment().dayOfYear() - 7) && task.completed == false
+    this.taskStatus = function(task) {
+      Task.incompletedTask(task)
     };
+
+    this.showTasks = function(task) {
+      return task.createdAt > (moment().dayOfYear() - 7) && task.completed == false
+    };
+
+    // this.checkHidden = function(task) {
+    //   return task.createdAt < (moment().dayOfYear() - 7) || task.completed == true
+    // };
 
   }
 
